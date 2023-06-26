@@ -7,9 +7,12 @@
  *
  * @author user
  */
+
 import PackInterface.*;
 public class RotiTawar extends bahan implements Varian2 {
     int banyakPesan ;
+    double totalKeuntungan = 40/100;
+    int HargaSatuan;
     double banyakAdonan = 2350 / 50;
     double banyakTepung = 1000 / banyakAdonan;
     double banyakGula = 150 / banyakAdonan;
@@ -42,7 +45,16 @@ public class RotiTawar extends bahan implements Varian2 {
 
     @Override
     protected void tampilBahan() {
-        
+        System.out.println("komposisi roti tawar ");
+        System.out.println("tepung : " + this.banyakTepung + " gram");
+        System.out.println("gula pasir : " + this.banyakGula + " gram");
+        System.out.println("butter : " + this.banyakButter + " gram");
+        System.out.println("ragi : " + this.banyakRagi + " gram");
+        System.out.println("susu bubuk : " + this.banyakSusuBubuk + " gram");
+        System.out.println("susu cair : " + this.banyakSusuCair + " gram");
+        System.out.println("telur : " + this.banyakTelur + " gram");
+        System.out.println("es batu : " + this.banyakEs + " gram");
+        System.out.println("total bahan untuk satu bungkus roti : " + this.hitungBeratBahan() + " gram");
     }
     
     @Override
@@ -62,15 +74,16 @@ public class RotiTawar extends bahan implements Varian2 {
     }
     
     double hargaVar1(){
-        return ((this.totalHargaBeli() + this.hargaCoklatV1)* 40 /100) + (this.totalHargaBeli() + this.hargaCoklatV1) ;
+        return ((this.totalHargaBeli() + this.hargaCoklatV1)* this.totalKeuntungan) + (this.totalHargaBeli() + this.hargaCoklatV1) ;
     }
     
     double hargaVar2(){
-        return ((this.totalHargaBeli() + this.hargaKejuV2)* 40 / 100) + ( this.totalHargaBeli() + this.hargaKejuV2);
+        return ((this.totalHargaBeli() + this.hargaKejuV2)* this.totalKeuntungan) + ( this.totalHargaBeli() + this.hargaKejuV2);
     }
     
-    public static void main(String[] args) {
+     public static void main(String[] args) {
         RotiTawar test = new RotiTawar();
+        test.tampilBahan();
         test.banyakPesan = 20;
         test.hargaVar1();
         System.out.println("harga roti tawar varian 1 isi coklat : " + test.hargaCoklatV1 + ", banyak pesan : " + test.banyakPesan);
