@@ -1,3 +1,6 @@
+
+import PackInterface.Varian2;
+import PackInterface.*;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -5,23 +8,21 @@
 
 /**
  *
- * @author user
+ * @author Khoirul
  */
-
-import PackInterface.*;
-public abstract class RotiTawar extends bahan implements Varian2 {
+public abstract class Pizza extends bahan implements Varian2 {
     int banyakPesan ;
     double totalKeuntungan = 40/100;
     int HargaSatuan;
-    double banyakAdonan = 2350 / 50;
+    double banyakAdonan = 1950 / 190;
     double banyakTepung = 1000 / banyakAdonan;
-    double banyakGula = 150 / banyakAdonan;
-    double banyakButter = 150/banyakAdonan;
+    double banyakGula = 100 / banyakAdonan;
+    double banyakButter = 100/banyakAdonan;
     double banyakRagi = 20/banyakAdonan;
-    double banyakSusuBubuk = 300/banyakAdonan;
-    double banyakSusuCair = 250/banyakAdonan;
-    double banyakTelur = 80/banyakAdonan;
-    double banyakEs = 400/banyakAdonan;
+    double banyakSusuBubuk = 200/banyakAdonan;
+    double banyakSusuCair = 180/banyakAdonan;
+    double banyakTelur = 50/banyakAdonan;
+    double banyakEs = 300/banyakAdonan;
     double hargaTepungroti = (this.hargaTepungTerigu/ this.beratKemasanTepungTerigu) * this.banyakTepung;
     double hargaGularoti = (this.hargaGulaPasir / this.beratKemasanGulaPasir) * this.banyakGula;  
     double hargaButterRoti = (this.hargaRagi / this.beratKemasanRagi) * this.banyakRagi;
@@ -30,8 +31,12 @@ public abstract class RotiTawar extends bahan implements Varian2 {
     double hargaSusuCairroti = (this.hargaSusuCair / this.beratKemasanSusuCair) * this.banyakSusuCair;
     double hargaTelurroti =(this.hargaTelur / this.beratKemasanTelur) * this.banyakTelur;
     double hargaEsroti = (this.hargaEsBatu / this.beratKemasanEsBatu) * this.banyakEs;
-    double hargaCoklatV1 = (this.hargaCoklat / this.beratCoklat) * 80 ;
-    double hargaKejuV2 = (this.hargaKeju / this.beratKeju) * 80;
+    double hargaSosisV1 = (this.hargaSosis / this.beratSosis) * 50 ;
+    double hargaKejuV2 = (this.hargaKeju / this.beratKeju) * 30;
+    double hargaSmokedbBeefV3 = (this.hargaSmokedBeef / this.beratSmokedBeef * 50);
+    double hargaBawangBombayV4 = (this.hargaBawangBombay / this.beratBawangBombay) * 30;
+}
+
 
     public double getBanyakTelur() {
         return banyakTelur;
@@ -45,7 +50,7 @@ public abstract class RotiTawar extends bahan implements Varian2 {
 
     @Override
     protected void tampilBahan() {
-        System.out.println("komposisi roti tawar ");
+        System.out.println("komposisi pizza ");
         System.out.println("tepung : " + this.banyakTepung + " gram");
         System.out.println("gula pasir : " + this.banyakGula + " gram");
         System.out.println("butter : " + this.banyakButter + " gram");
@@ -74,7 +79,7 @@ public abstract class RotiTawar extends bahan implements Varian2 {
     }
     
     double hargaVar1(){
-        return ((this.totalHargaBeli() + this.hargaCoklatV1)* this.totalKeuntungan) + (this.totalHargaBeli() + this.hargaCoklatV1) ;
+        return ((this.totalHargaBeli() + this.hargasosisV1)* this.totalKeuntungan) + (this.totalHargaBeli() + this.hargasosisV2) ;
     }
     
     double hargaVar2(){
@@ -82,11 +87,11 @@ public abstract class RotiTawar extends bahan implements Varian2 {
     }
     
      public static void main(String[] args) {
-        RotiTawar test = new RotiTawar();
+        pizza test = new pizza();
         test.tampilBahan();
-        test.banyakPesan = 20;
+        test.banyakPesan = 10;
         test.hargaVar1();
-        System.out.println("harga roti tawar varian 1 isi coklat : " + test.hargaCoklatV1 + ", banyak pesan : " + test.banyakPesan);
+        System.out.println("harga pizza 1 isi coklat : " + test.V1 + ", banyak pesan : " + test.banyakPesan);
         test.jumlahPesan();
     }
 }
