@@ -8,7 +8,8 @@
  * @author user
  */
 import PackInterface.*;
-public  class RotiTawar extends bahan implements Varian2 {
+
+public  class RotiTawar extends bahan implements Varian2, Varian22 {
     int banyakPesan ;
     double totalKeuntungan = 40/100;
     int HargaSatuan;
@@ -66,10 +67,11 @@ public  class RotiTawar extends bahan implements Varian2 {
         System.out.println("harga beli bahan : " + this.totalHargaBeli());
     }
   
+    
     @Override
-    public double jumlahPesan() {
+    public int jumlahPesan() {
       double harga = this.banyakPesan * this.hargaVar1();
-      return harga;
+      return (int) harga;
     }
     
     double hargaVar1(){
@@ -79,13 +81,11 @@ public  class RotiTawar extends bahan implements Varian2 {
     double hargaVar2(){
         return ((this.totalHargaBeli() + this.hargaKejuV2)* this.totalKeuntungan) + ( this.totalHargaBeli() + this.hargaKejuV2);
     }
-    
-     public static void main(String[] args) {
-        RotiTawar test = new RotiTawar();
-        test.tampilBahan();
-        test.banyakPesan = 20;
-        test.hargaVar1();
-        System.out.println("harga roti tawar varian 1 isi coklat : " + test.hargaCoklatV1 + ", banyak pesan : " + test.banyakPesan);
-        test.jumlahPesan();
+
+    @Override
+    public int Jumlahpesan2() {
+      double harga = this.banyakPesan * this.hargaVar2();
+      return (int) harga;
     }
+   
 }
