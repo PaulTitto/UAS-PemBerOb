@@ -9,5 +9,5 @@ package PackInterface;
  * @author Khoirul
  */
 public interface Varian22 {
-    
+    public int Jumlahpesan2();
 }
