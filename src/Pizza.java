@@ -1,16 +1,15 @@
-
-import PackInterface.Varian2;
-import PackInterface.*;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
+import Varian.Varian1;
+
 /**
  *
  * @author Khoirul
  */
-public  class Pizza extends bahan implements Varian2 {
+public class Pizza extends bahan implements Varian1{
     int banyakPesan ;
     double totalKeuntungan = 40/100;
     int HargaSatuan;
@@ -56,9 +55,9 @@ public  class Pizza extends bahan implements Varian2 {
     }
 
     @Override
-    public int jumlahPesan() {
-      int harga = this.banyakPesan * this.hargaVar1();
-      return harga;  
+    public double jumlahPesan() {
+      return this.banyakPesan * this.hargaVar1();
+
     }
 
 
@@ -85,13 +84,18 @@ public  class Pizza extends bahan implements Varian2 {
     double hargaVar2(){
         return ((this.totalHargaBeli() + this.hargaKejuV2)* this.totalKeuntungan) + ( this.totalHargaBeli() + this.hargaKejuV2);
     }
-    
-     public static void main(String[] args) {
-        Pizza test = new Pizza();
-        test.tampilBahan();
-        test.banyakPesan = 10;
-        test.hargaVar1();
-        System.out.println("harga pizza 1 isi coklat : " + test.hargaSosisV1+ ", banyak pesan : " + test.banyakPesan);
-        test.jumlahPesan();
+
+    @Override
+    public void varian1(int jumlahPesan) {
+        System.out.println(this.banyakPesan * this.hargaVar1());
     }
+
+//     public static void main(String[] args) {
+//        RotiManis test = new RotiManis();
+//        test.tampilBahan();
+//        test.banyakPesan = 10;
+//        test.hargaVar1();
+//        System.out.println("harga pizza 1 isi coklat : " + test.hargaSosisV1+ ", banyak pesan : " + test.banyakPesan);
+//        test.jumlahPesan();
+//    }
 }

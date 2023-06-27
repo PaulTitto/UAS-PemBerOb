@@ -42,7 +42,7 @@ public abstract class bahan {
     hargaBawangBombay = 40000;
 
 
-
+    public abstract double jumlahPesan();
 
     double hitungBeratBahan(){
         return 0;

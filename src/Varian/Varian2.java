@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package PackInterface;
+package Varian;
 
 /**
  *
- * @author Khoirul
+ * @author user
  */
-public interface Varian22 {
-    public int Jumlahpesan2();
+public abstract interface Varian2 {
+    public void varian2(int jumlahPesan);
 }

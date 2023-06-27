@@ -1,18 +1,28 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
+
+import Varian.Varian2;
 
 /**
  *
- * @author user
+ * @author USER
  */
-import Varian.*;
-
-public  class RotiTawar extends bahan implements Varian2, Varian1 {
-    int banyakPesan ;
+//public class RotiManis {
+//
+//    private static class bahan {
+//
+//        public bahan() {
+//        }
+//    }
+//
+//    private static interface Varian2 {
+//    }
+public class RotiManis extends bahan implements Varian2 {
+     int banyakPesan ;
     double totalKeuntungan = 40/100;
-    int HargaSatuan;
+     int HargaSatuan;
     double banyakAdonan = 2350 / 50;
     double banyakTepung = 1000 / banyakAdonan;
     double banyakGula = 150 / banyakAdonan;
@@ -30,22 +40,17 @@ public  class RotiTawar extends bahan implements Varian2, Varian1 {
     double hargaSusuCairroti = (this.hargaSusuCair / this.beratKemasanSusuCair) * this.banyakSusuCair;
     double hargaTelurroti =(this.hargaTelur / this.beratKemasanTelur) * this.banyakTelur;
     double hargaEsroti = (this.hargaEsBatu / this.beratKemasanEsBatu) * this.banyakEs;
-    double hargaCoklatV1 = (this.hargaCoklat / this.beratCoklat) * 80 ;
-    double hargaKejuV2 = (this.hargaKeju / this.beratKeju) * 80;
+    double hargaSosisV1 = (this.hargaSosis / this.beratSosis) * 50 ;
+    double hargaKejuV2 = (this.hargaKeju / this.beratKeju) * 30;
+    double hargaSmokedbBeefV3 = (this.hargaSmokedBeef / this.beratSmokedBeef * 50);
+    double hargaBawangBombayV4 = (this.hargaBawangBombay / this.beratBawangBombay) * 30;
 
-    public double getBanyakTelur() {
-        return banyakTelur;
-    }
 
-    
-    @Override
     protected double totalHargaBeli() {
-        return this.hargaTepungroti + this.hargaGularoti + this.hargaButterRoti + this.hargaRagiroti + this.hargaSusuBubukroti + this.hargaSusuCairroti + this.hargaTelurroti + this.hargaEsroti;
+          return this.hargaTepungroti + this.hargaGularoti + this.hargaButterRoti + this.hargaRagiroti + this.hargaSusuBubukroti + this.hargaSusuCairroti + this.hargaTelurroti + this.hargaEsroti;
     }
-
-    @Override
     protected void tampilBahan() {
-        System.out.println("komposisi roti tawar ");
+        System.out.println("komposisi pizza ");
         System.out.println("tepung : " + this.banyakTepung + " gram");
         System.out.println("gula pasir : " + this.banyakGula + " gram");
         System.out.println("butter : " + this.banyakButter + " gram");
@@ -56,36 +61,40 @@ public  class RotiTawar extends bahan implements Varian2, Varian1 {
         System.out.println("es batu : " + this.banyakEs + " gram");
         System.out.println("total bahan untuk satu bungkus roti : " + this.hitungBeratBahan() + " gram");
     }
-    
+//    public int jumlahPesan() {
+//      return (int) (this.banyakPesan * this.hargaVar1());
+//    }
+
     @Override
+    public int Jumlahpesan2() {
+        return (int) (this.banyakPesan * this.hargaVar1());
+    }
+
+
+    double getBanyakTelur(){
+        return this.banyakTelur;
+    }
     double hitungBeratBahan(){
         return banyakTepung + banyakGula + banyakButter + banyakRagi + banyakSusuBubuk + banyakSusuCair + banyakTelur + banyakEs;
     }
-    
-    @Override
     void hitungHargaBeli(){ 
         System.out.println("harga beli bahan : " + this.totalHargaBeli());
     }
-  
-    
-    @Override
-    public double jumlahPesan() {
-      double harga = this.banyakPesan * this.hargaVar1();
-      return (int) harga;
-    }
+
     
     double hargaVar1(){
-        return ((this.totalHargaBeli() + this.hargaCoklatV1)* this.totalKeuntungan) + (this.totalHargaBeli() + this.hargaCoklatV1) ;
+        return ((this.totalHargaBeli() + this.hargaSosisV1)* this.totalKeuntungan) + (this.totalHargaBeli() + this.hargaSosisV1) ;
     }
     
     double hargaVar2(){
         return ((this.totalHargaBeli() + this.hargaKejuV2)* this.totalKeuntungan) + ( this.totalHargaBeli() + this.hargaKejuV2);
     }
-
-    @Override
-    public int Jumlahpesan2() {
-      double harga = this.banyakPesan * this.hargaVar2();
-      return (int) harga;
+//    public static void main(String[Roti manisss] args) {
+//        Rotimanisss test = new Rotimanisss();
+//        test.tampilBahan();
+//        test.banyakPesan = 10;
+//        test.hargaVar1();
+//        System.out.println("harga Rotimanisss 1 isi coklat : " + test.hargaSosisV1+ ", banyak pesan : " + test.banyakPesan);
+//        test.jumlahPesan();
+//    }
     }
-   
-}
