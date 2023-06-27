@@ -4,6 +4,7 @@
  */
 
 import Varian.Varian2;
+import Varian.Varian3;
 
 /**
  *
@@ -19,7 +20,7 @@ import Varian.Varian2;
 //
 //    private static interface Varian2 {
 //    }
-public class RotiManis extends bahan implements Varian2 {
+public class RotiManis extends bahan implements Varian3 {
      int banyakPesan ;
     double totalKeuntungan = 40/100;
      int HargaSatuan;
@@ -65,15 +66,18 @@ public class RotiManis extends bahan implements Varian2 {
 //      return (int) (this.banyakPesan * this.hargaVar1());
 //    }
 
-    @Override
-    public int Jumlahpesan2() {
-        return (int) (this.banyakPesan * this.hargaVar1());
-    }
 
 
     double getBanyakTelur(){
         return this.banyakTelur;
     }
+
+
+    @Override
+    public double jumlahPesan() {
+        return (int) (this.banyakPesan * this.hargaVar1());
+    }
+
     double hitungBeratBahan(){
         return banyakTepung + banyakGula + banyakButter + banyakRagi + banyakSusuBubuk + banyakSusuCair + banyakTelur + banyakEs;
     }
@@ -88,6 +92,16 @@ public class RotiManis extends bahan implements Varian2 {
     
     double hargaVar2(){
         return ((this.totalHargaBeli() + this.hargaKejuV2)* this.totalKeuntungan) + ( this.totalHargaBeli() + this.hargaKejuV2);
+    }
+
+//    @Override
+//    public int Jumlahpesan2() {
+//
+//    }
+
+    @Override
+    public void varian3(int jumlahPesan) {
+        System.out.println((this.banyakPesan * this.hargaVar1()));
     }
 //    public static void main(String[Roti manisss] args) {
 //        Rotimanisss test = new Rotimanisss();

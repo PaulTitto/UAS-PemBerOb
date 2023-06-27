@@ -9,5 +9,7 @@ package Varian;
  * @author user
  */
 public abstract interface Varian2 {
+//    int Jumlahpesan2();
+
     public void varian2(int jumlahPesan);
 }

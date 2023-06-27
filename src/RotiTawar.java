@@ -9,7 +9,7 @@
  */
 import Varian.*;
 
-public  class RotiTawar extends bahan implements Varian2, Varian1 {
+public  class RotiTawar extends bahan implements Varian2{
     int banyakPesan ;
     double totalKeuntungan = 40/100;
     int HargaSatuan;
@@ -82,10 +82,18 @@ public  class RotiTawar extends bahan implements Varian2, Varian1 {
         return ((this.totalHargaBeli() + this.hargaKejuV2)* this.totalKeuntungan) + ( this.totalHargaBeli() + this.hargaKejuV2);
     }
 
+//    @Override
+//    public int Jumlahpesan2() {
+//      double harga = this.banyakPesan * this.hargaVar2();
+//      return (int) harga;
+//    }
+
+
+
+
     @Override
-    public int Jumlahpesan2() {
-      double harga = this.banyakPesan * this.hargaVar2();
-      return (int) harga;
+    public void varian2(int jumlahPesan) {
+        double harga = this.banyakPesan * this.hargaVar2();
+        System.out.println(harga);
     }
-   
 }

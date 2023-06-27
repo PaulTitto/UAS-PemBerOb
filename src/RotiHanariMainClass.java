@@ -19,9 +19,10 @@ public class RotiHanariMainClass {
         r1.banyakPesan = 15;
         r1.hargaVar2();
         System.out.println("harga roti tawar varian 2 isi keju : " + r1.hargaVar2() + ", banyak pesan : " + r1.banyakPesan );
-        r1.Jumlahpesan2();
-        System.out.println("total pembelian : " + r1.Jumlahpesan2());
-        
+        r1.jumlahPesan();
+        System.out.println("total pembelian : " + r1.jumlahPesan());
+        System.out.println("------------------------------------------");
+        System.out.println("------------------------------------------");
         Pizza p1 = new Pizza();
         p1.tampilBahan();
         p1.banyakPesan = 10;
