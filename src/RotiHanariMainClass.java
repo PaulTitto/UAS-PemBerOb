@@ -23,6 +23,8 @@ public class RotiHanariMainClass {
         System.out.println("total pembelian : " + r1.jumlahPesan());
         System.out.println("------------------------------------------");
         System.out.println("------------------------------------------");
+        System.out.println("------------------------------------------");
+        System.out.println("------------------------------------------");
         Pizza p1 = new Pizza();
         p1.tampilBahan();
         p1.banyakPesan = 10;
