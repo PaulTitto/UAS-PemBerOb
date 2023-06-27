@@ -10,7 +10,7 @@ import PackInterface.*;
  *
  * @author Khoirul
  */
-public abstract class Pizza extends bahan implements Varian2 {
+public  class Pizza extends bahan implements Varian2 {
     int banyakPesan ;
     double totalKeuntungan = 40/100;
     int HargaSatuan;
@@ -35,17 +35,10 @@ public abstract class Pizza extends bahan implements Varian2 {
     double hargaKejuV2 = (this.hargaKeju / this.beratKeju) * 30;
     double hargaSmokedbBeefV3 = (this.hargaSmokedBeef / this.beratSmokedBeef * 50);
     double hargaBawangBombayV4 = (this.hargaBawangBombay / this.beratBawangBombay) * 30;
-}
 
-
-    public double getBanyakTelur() {
-        return banyakTelur;
-    }
-
-    
     @Override
     protected double totalHargaBeli() {
-        return this.hargaTepungroti + this.hargaGularoti + this.hargaButterRoti + this.hargaRagiroti + this.hargaSusuBubukroti + this.hargaSusuCairroti + this.hargaTelurroti + this.hargaEsroti;
+          return this.hargaTepungroti + this.hargaGularoti + this.hargaButterRoti + this.hargaRagiroti + this.hargaSusuBubukroti + this.hargaSusuCairroti + this.hargaTelurroti + this.hargaEsroti;
     }
 
     @Override
@@ -61,7 +54,19 @@ public abstract class Pizza extends bahan implements Varian2 {
         System.out.println("es batu : " + this.banyakEs + " gram");
         System.out.println("total bahan untuk satu bungkus roti : " + this.hitungBeratBahan() + " gram");
     }
-    
+
+    @Override
+    public int jumlahPesan() {
+      int harga = this.banyakPesan * this.hargaVar1();
+      return harga;  
+    }
+
+
+
+    double getBanyakTelur(){
+        return this.banyakTelur;
+    }
+
     @Override
     double hitungBeratBahan(){
         return banyakTepung + banyakGula + banyakButter + banyakRagi + banyakSusuBubuk + banyakSusuCair + banyakTelur + banyakEs;
@@ -71,15 +76,10 @@ public abstract class Pizza extends bahan implements Varian2 {
     void hitungHargaBeli(){ 
         System.out.println("harga beli bahan : " + this.totalHargaBeli());
     }
-  
-    @Override
-    public void jumlahPesan() {
-      double harga = this.banyakPesan * this.hargaVar1();
-        System.out.println("total harga : " + harga);  
-    }
+
     
     double hargaVar1(){
-        return ((this.totalHargaBeli() + this.hargasosisV1)* this.totalKeuntungan) + (this.totalHargaBeli() + this.hargasosisV2) ;
+        return ((this.totalHargaBeli() + this.hargaSosisV1)* this.totalKeuntungan) + (this.totalHargaBeli() + this.hargaSosisV1) ;
     }
     
     double hargaVar2(){
@@ -87,11 +87,11 @@ public abstract class Pizza extends bahan implements Varian2 {
     }
     
      public static void main(String[] args) {
-        pizza test = new pizza();
+        Pizza test = new Pizza();
         test.tampilBahan();
         test.banyakPesan = 10;
         test.hargaVar1();
-        System.out.println("harga pizza 1 isi coklat : " + test.V1 + ", banyak pesan : " + test.banyakPesan);
+        System.out.println("harga pizza 1 isi coklat : " + test.hargaSosisV1+ ", banyak pesan : " + test.banyakPesan);
         test.jumlahPesan();
     }
 }

@@ -47,7 +47,7 @@ public abstract class bahan {
     double hitungBeratBahan(){
         return 0;
     };
-s
+
     void hitungHargaBeli(){
     };
 

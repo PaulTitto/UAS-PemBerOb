@@ -7,9 +7,8 @@
  *
  * @author user
  */
-
 import PackInterface.*;
-public abstract class RotiTawar extends bahan implements Varian2 {
+public  class RotiTawar extends bahan implements Varian2 {
     int banyakPesan ;
     double totalKeuntungan = 40/100;
     int HargaSatuan;
@@ -68,9 +67,9 @@ public abstract class RotiTawar extends bahan implements Varian2 {
     }
   
     @Override
-    public void jumlahPesan() {
+    public double jumlahPesan() {
       double harga = this.banyakPesan * this.hargaVar1();
-        System.out.println("total harga : " + harga);  
+      return harga;
     }
     
     double hargaVar1(){
